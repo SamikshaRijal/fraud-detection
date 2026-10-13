@@ -1,0 +1,15 @@
+# Dataset - too big for GitHub
+data/*.csv
+data/*.zip
+
+# Python clutter
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Secrets and editor files
+.env
+kaggle.json
+.vscode/
