@@ -30,5 +30,7 @@ Machine Learning Team Project - Topic: Fraud Detection
     - Settings are selected by mean PR-AUC (trapezoidal area) using 5-fold stratified cross-validation on the training split.
     - Time and Amount scaling is fitted inside each validation fold.
     - Selected models are refitted on the full training split, then evaluated on the held-out test split.
+    - Each model's F1-optimal fraud threshold is selected from 3-fold out-of-fold training predictions; test data is used only for evaluation.
+    - Model comparison results include metrics at both the default 0.5 threshold and the tuned threshold.
     - All trial scores are saved to results/metrics/tuning_results.csv.
     - Final test metrics and selected settings are saved to results/metrics/model_comparison.csv.

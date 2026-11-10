@@ -14,7 +14,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import precision_recall_curve, auc, confusion_matrix
 
 from preprocessing import get_data
-from eval import model_evaluation
+from eval import find_best_threshold, model_evaluation
 
 # Use the same PR-AUC calculation for validation and final evaluation
 def pr_auc(model, X, y):
@@ -44,6 +44,8 @@ def main():
     best_forest = None
     best_forest_score = float("-inf")
     results=[]
+    default_results=[]
+    tuned_results=[]
     tuning_results=[]
     confusion_results=[]
     for name, model in models.items():
@@ -91,11 +93,16 @@ def main():
                 best_forest_score = search.best_score_
                 best_forest = (model, name)
 
-        result = model_evaluation(name, model, X_test, y_test)
-        if parameters:
-            result["Best Setting"] = str(search.best_params_)
-            result["CV PR-AUC"] = search.best_score_
-        results.append(result)
+        threshold = find_best_threshold(model, X_train, y_train)
+        default_result = model_evaluation(name, model, X_test, y_test)
+        tuned_result = model_evaluation(name, model, X_test, y_test, threshold)
+        for result in (default_result, tuned_result):
+            if parameters:
+                result["Best Setting"] = str(search.best_params_)
+                result["CV PR-AUC"] = search.best_score_
+        default_results.append(default_result)
+        tuned_results.append(tuned_result)
+        results.extend((default_result, tuned_result))
         tn, fp, fn, tp = confusion_matrix(y_test, model.predict(X_test), labels=[0, 1]).ravel()
         confusion_results.append({"Model": name, "TN": tn, "FP": fp, "FN": fn, "TP": tp})
         # Save completed models as checkpoints during the long ensemble run.
@@ -108,9 +115,13 @@ def main():
 
 
     df_results = pd.DataFrame(results)
-    print("\nModel Comparison: ")
-    print("-"*30)
-    print(df_results.to_string(index=False))
+    for title, comparison in (
+        ("Model Comparison (Threshold = 0.5)", default_results),
+        ("Model Comparison (Tuned Threshold)", tuned_results),
+    ):
+        print(f"\n{title}:")
+        print("-" * 30)
+        print(pd.DataFrame(comparison).to_string(index=False))
     df_results.to_csv("results/metrics/model_comparison.csv", index=False)
     if tuning_results:
         pd.concat(tuning_results, ignore_index=True).to_csv("results/metrics/tuning_results.csv", index=False)
