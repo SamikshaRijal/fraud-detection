@@ -2,6 +2,10 @@
 data/*.csv
 data/*.zip
 
+results/models/
+
+results/metrics/
+
 # Python clutter
 __pycache__/
 *.pyc
@@ -16,3 +20,5 @@ kaggle.json
 
 # macOS files
 .DS_Store
+
+

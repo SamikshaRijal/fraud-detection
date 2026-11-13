@@ -27,7 +27,7 @@ def model_evaluation(name, model, X_test, y_test, threshold=0.5):
 		"Model": name,
         "Threshold": threshold,
 		"Accuracy":accuracy_score(y_test, y_pred),
-		"Precision": precision_score(y_test, y_pred),
+		"Precision": precision_score(y_test, y_pred, zero_division=0),
 		"Recall":recall_score(y_test, y_pred),
 		"F1-Score":f1_score(y_test, y_pred),
 		"ROC-AUC": roc_auc_score(y_test, y_fraud_prob),
@@ -38,7 +38,7 @@ def model_evaluation(name, model, X_test, y_test, threshold=0.5):
     print("-" * 30)
     for test_evaluation, value in results.items():
         if test_evaluation != 'Model':
-            print(f"{test_evaluation}: \t{value:.5f}")
+            print(f"{test_evaluation}: \t{value:.10f}")
     print("\nConfusion Matrix:") 
     print(confusion_matrix(y_test, y_pred))
     print("-"*30)

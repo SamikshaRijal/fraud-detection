@@ -1,7 +1,10 @@
+# Creates a class distribution chart for the report and the slides
+# Run: python3 src/explore_dataset.py
 import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import os
 
 
 df = pd.read_csv("data/creditcard.csv")
@@ -17,6 +20,9 @@ print("Class Counts: ", counts)
 print(f"Percent of fraud charges: {counts[1]/len(df) * 100}%")
 print(f"Percent of normal charges: {counts[0]/len(df) * 100}%")
 
+os.makedirs("results/figures", exist_ok=True)
+# Bar chart showing the number of normal vs fraud transaction
+# Since there are fewer fraud transactions log scale is used
 counts.plot(kind="bar")
 plt.yscale("log")
 plt.xlabel('Class (Normal = 0, Fraud = 1)')

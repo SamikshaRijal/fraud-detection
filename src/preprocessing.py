@@ -35,7 +35,8 @@ def get_data(summary=False, scaling=True):
     
     # Split the dataset into 80/20 training and test set
     X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, stratify=y, random_state=42)
-    
+    X_train = X_train.copy()
+    X_test = X_test.copy()
     #Scale time and amount and fit on training set
     if scaling:
         scale = StandardScaler()
