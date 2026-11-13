@@ -3,6 +3,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from balancedGradient import BalancedGradientBoostingClassifier
+from sklearn.neighbors import KNeighborsClassifier
 import pickle
 import os
 import matplotlib
@@ -13,7 +14,7 @@ import matplotlib.pyplot as plt
 from preprocessing import get_data
 from eval import model_evaluation, find_best_threshold
 
-X_train, X_test, y_train, y_test = get_data(True)
+X_train, X_test, y_train, y_test, scaler = get_data(True, return_scaler=True)
 
 models = {
     # Logistic regression
@@ -32,9 +33,16 @@ models = {
     # Gradient Boosting
     "Gradient Boosting (Balanced)": BalancedGradientBoostingClassifier(random_state=42),
     "Gradient Boosting (UnBalanced)": GradientBoostingClassifier(random_state=42),
+
+    # K-Nearest Neighbor (KNN)
+    "K-Nearest Neighbors (KNN)": KNeighborsClassifier(),
+
 }
 
 os.makedirs("results/models", exist_ok=True)
+
+test_data = X_test.copy()
+test_data["Class"] = y_test
 
 default_threshold_results=[]
 tuned_threshold_results=[]
@@ -48,7 +56,11 @@ for name, model in models.items():
     tuned_threshold_results.append(model_evaluation(name, model, X_test, y_test, threshold))
     fileName = os.path.join("results/models", name.lower() + ".pkl")
     with open(fileName, "wb") as f:
-        pickle.dump({"name": name, "model": model, "threshold":threshold}, f)
+        pickle.dump({
+            "name": name, 
+            "model": model, 
+            "threshold":threshold, 
+        }, f)
         
     if name == "Random Forest (Balanced)":
         importance = model.feature_importances_

@@ -1,0 +1,331 @@
+        DATASET SUMMARY
+------------------------------
+Number of observations(rows):  284807
+Features: 30 + 1 Class Label
+Missing Values: 0
+Duplicate data rows:  1081
+
+Class Counts: 
+Normal (0): 284315
+ Fraud (1): 492
+Percent of normal charges: 99.827%
+ Percent of fraud charges: 0.173%
+
+After the split: 
+------------------------------
+Training set: Total= 226980, Fraud= 378
+ Testing set: Total= 56746, Fraud= 95
+
+Training Logistic Regression (Balanced)...
+
+LOGISTIC REGRESSION (BALANCED)
+------------------------------
+Threshold:      0.5000000000
+Accuracy:       0.9752405456
+Precision:      0.0562330623
+Recall:         0.8736842105
+F1-Score:       0.1056651814
+ROC-AUC:        0.9658392243
+PR-AUC:         0.7046360388
+
+Confusion Matrix:
+[[55258  1393]
+ [   12    83]]
+------------------------------
+
+LOGISTIC REGRESSION (BALANCED)
+------------------------------
+Threshold:      0.9999998449
+Accuracy:       0.9994184612
+Precision:      0.8875000000
+Recall:         0.7473684211
+F1-Score:       0.8114285714
+ROC-AUC:        0.9658392243
+PR-AUC:         0.7046360388
+
+Confusion Matrix:
+[[56642     9]
+ [   24    71]]
+------------------------------
+
+Training Logistic Regression (UnBalanced)...
+
+LOGISTIC REGRESSION (UNBALANCED)
+------------------------------
+Threshold:      0.5000000000
+Accuracy:       0.9991365030
+Precision:      0.8484848485
+Recall:         0.5894736842
+F1-Score:       0.6956521739
+ROC-AUC:        0.9563448966
+PR-AUC:         0.6909846014
+
+Confusion Matrix:
+[[56641    10]
+ [   39    56]]
+------------------------------
+
+LOGISTIC REGRESSION (UNBALANCED)
+------------------------------
+Threshold:      0.0942385551
+Accuracy:       0.9993479717
+Precision:      0.8452380952
+Recall:         0.7473684211
+F1-Score:       0.7932960894
+ROC-AUC:        0.9563448966
+PR-AUC:         0.6909846014
+
+Confusion Matrix:
+[[56638    13]
+ [   24    71]]
+------------------------------
+
+Training Decision Tree (Balanced)...
+
+DECISION TREE (BALANCED)
+------------------------------
+Threshold:      0.5000000000
+Accuracy:       0.9989779015
+Precision:      0.7228915663
+Recall:         0.6315789474
+F1-Score:       0.6741573034
+ROC-AUC:        0.8155864764
+PR-AUC:         0.6775436486
+
+Confusion Matrix:
+[[56628    23]
+ [   35    60]]
+------------------------------
+
+DECISION TREE (BALANCED)
+------------------------------
+Threshold:      1.0000000000
+Accuracy:       0.9989779015
+Precision:      0.7228915663
+Recall:         0.6315789474
+F1-Score:       0.6741573034
+ROC-AUC:        0.8155864764
+PR-AUC:         0.6775436486
+
+Confusion Matrix:
+[[56628    23]
+ [   35    60]]
+------------------------------
+
+Training Decision Tree (UnBalanced)...
+
+DECISION TREE (UNBALANCED)
+------------------------------
+Threshold:      0.5000000000
+Accuracy:       0.9990483911
+Precision:      0.7204301075
+Recall:         0.7052631579
+F1-Score:       0.7127659574
+ROC-AUC:        0.8524021037
+PR-AUC:         0.7130933461
+
+Confusion Matrix:
+[[56625    26]
+ [   28    67]]
+------------------------------
+
+DECISION TREE (UNBALANCED)
+------------------------------
+Threshold:      1.0000000000
+Accuracy:       0.9990483911
+Precision:      0.7204301075
+Recall:         0.7052631579
+F1-Score:       0.7127659574
+ROC-AUC:        0.8524021037
+PR-AUC:         0.7130933461
+
+Confusion Matrix:
+[[56625    26]
+ [   28    67]]
+------------------------------
+
+Training Random Forest (Balanced)...
+
+RANDOM FOREST (BALANCED)
+------------------------------
+Threshold:      0.5000000000
+Accuracy:       0.9994713284
+Precision:      0.9452054795
+Recall:         0.7263157895
+F1-Score:       0.8214285714
+ROC-AUC:        0.9391009960
+PR-AUC:         0.8077135221
+
+Confusion Matrix:
+[[56647     4]
+ [   26    69]]
+------------------------------
+
+RANDOM FOREST (BALANCED)
+------------------------------
+Threshold:      0.4100000000
+Accuracy:       0.9994713284
+Precision:      0.9333333333
+Recall:         0.7368421053
+F1-Score:       0.8235294118
+ROC-AUC:        0.9391009960
+PR-AUC:         0.8077135221
+
+Confusion Matrix:
+[[56646     5]
+ [   25    70]]
+------------------------------
+
+Training Random Forest (UnBalanced)...
+
+RANDOM FOREST (UNBALANCED)
+------------------------------
+Threshold:      0.5000000000
+Accuracy:       0.9995065732
+Precision:      0.9718309859
+Recall:         0.7263157895
+F1-Score:       0.8313253012
+ROC-AUC:        0.9239443908
+PR-AUC:         0.7966604978
+
+Confusion Matrix:
+[[56649     2]
+ [   26    69]]
+------------------------------
+
+RANDOM FOREST (UNBALANCED)
+------------------------------
+Threshold:      0.3600000000
+Accuracy:       0.9995065732
+Precision:      0.9350649351
+Recall:         0.7578947368
+F1-Score:       0.8372093023
+ROC-AUC:        0.9239443908
+PR-AUC:         0.7966604978
+
+Confusion Matrix:
+[[56646     5]
+ [   23    72]]
+------------------------------
+
+Training Gradient Boosting (Balanced)...
+
+GRADIENT BOOSTING (BALANCED)
+------------------------------
+Threshold:      0.5000000000
+Accuracy:       0.9935854510
+Precision:      0.1850117096
+Recall:         0.8315789474
+F1-Score:       0.3026819923
+ROC-AUC:        0.9768770747
+PR-AUC:         0.7220160978
+
+Confusion Matrix:
+[[56303   348]
+ [   16    79]]
+------------------------------
+
+GRADIENT BOOSTING (BALANCED)
+------------------------------
+Threshold:      0.9836585759
+Accuracy:       0.9993655941
+Precision:      0.8734177215
+Recall:         0.7263157895
+F1-Score:       0.7931034483
+ROC-AUC:        0.9768770747
+PR-AUC:         0.7220160978
+
+Confusion Matrix:
+[[56641    10]
+ [   26    69]]
+------------------------------
+
+Training Gradient Boosting (UnBalanced)...
+
+GRADIENT BOOSTING (UNBALANCED)
+------------------------------
+Threshold:      0.5000000000
+Accuracy:       0.9992422373
+Precision:      0.8611111111
+Recall:         0.6526315789
+F1-Score:       0.7425149701
+ROC-AUC:        0.8539261164
+PR-AUC:         0.6509949324
+
+Confusion Matrix:
+[[56641    10]
+ [   33    62]]
+------------------------------
+
+GRADIENT BOOSTING (UNBALANCED)
+------------------------------
+Threshold:      0.1882243653
+Accuracy:       0.9989955239
+Precision:      0.7159090909
+Recall:         0.6631578947
+F1-Score:       0.6885245902
+ROC-AUC:        0.8539261164
+PR-AUC:         0.6509949324
+
+Confusion Matrix:
+[[56626    25]
+ [   32    63]]
+------------------------------
+
+Training K-Nearest Neighbors (KNN)...
+
+K-NEAREST NEIGHBORS (KNN)
+------------------------------
+Threshold:      0.5000000000
+Accuracy:       0.9994713284
+Precision:      0.9710144928
+Recall:         0.7052631579
+F1-Score:       0.8170731707
+ROC-AUC:        0.8998891644
+PR-AUC:         0.8468859189
+
+Confusion Matrix:
+[[56649     2]
+ [   28    67]]
+------------------------------
+
+K-NEAREST NEIGHBORS (KNN)
+------------------------------
+Threshold:      0.4000000000
+Accuracy:       0.9994889508
+Precision:      0.9230769231
+Recall:         0.7578947368
+F1-Score:       0.8323699422
+ROC-AUC:        0.8998891644
+PR-AUC:         0.8468859189
+
+Confusion Matrix:
+[[56645     6]
+ [   23    72]]
+------------------------------
+
+Model Comparison (Default Threshold(0.5)): 
+------------------------------
+                              Model  Threshold  Accuracy  Precision    Recall  F1-Score   ROC-AUC    PR-AUC
+5        Random Forest (UnBalanced)        0.5  0.999507   0.971831  0.726316  0.831325  0.923944  0.796660
+4          Random Forest (Balanced)        0.5  0.999471   0.945205  0.726316  0.821429  0.939101  0.807714
+8         K-Nearest Neighbors (KNN)        0.5  0.999471   0.971014  0.705263  0.817073  0.899889  0.846886
+7    Gradient Boosting (UnBalanced)        0.5  0.999242   0.861111  0.652632  0.742515  0.853926  0.650995
+3        Decision Tree (UnBalanced)        0.5  0.999048   0.720430  0.705263  0.712766  0.852402  0.713093
+1  Logistic Regression (UnBalanced)        0.5  0.999137   0.848485  0.589474  0.695652  0.956345  0.690985
+2          Decision Tree (Balanced)        0.5  0.998978   0.722892  0.631579  0.674157  0.815586  0.677544
+6      Gradient Boosting (Balanced)        0.5  0.993585   0.185012  0.831579  0.302682  0.976877  0.722016
+0    Logistic Regression (Balanced)        0.5  0.975241   0.056233  0.873684  0.105665  0.965839  0.704636
+
+Model Comparison (Tuned Threshold): 
+------------------------------
+                              Model  Threshold  Accuracy  Precision    Recall  F1-Score   ROC-AUC    PR-AUC
+5        Random Forest (UnBalanced)   0.360000  0.999507   0.935065  0.757895  0.837209  0.923944  0.796660
+8         K-Nearest Neighbors (KNN)   0.400000  0.999489   0.923077  0.757895  0.832370  0.899889  0.846886
+4          Random Forest (Balanced)   0.410000  0.999471   0.933333  0.736842  0.823529  0.939101  0.807714
+0    Logistic Regression (Balanced)   1.000000  0.999418   0.887500  0.747368  0.811429  0.965839  0.704636
+1  Logistic Regression (UnBalanced)   0.094239  0.999348   0.845238  0.747368  0.793296  0.956345  0.690985
+6      Gradient Boosting (Balanced)   0.983659  0.999366   0.873418  0.726316  0.793103  0.976877  0.722016
+3        Decision Tree (UnBalanced)   1.000000  0.999048   0.720430  0.705263  0.712766  0.852402  0.713093
+7    Gradient Boosting (UnBalanced)   0.188224  0.998996   0.715909  0.663158  0.688525  0.853926  0.650995
+2          Decision Tree (Balanced)   1.000000  0.998978   0.722892  0.631579  0.674157  0.815586  0.677544
