@@ -14,10 +14,10 @@ import matplotlib.pyplot as plt
 from preprocessing import get_data
 from eval import model_evaluation, find_best_threshold
 
-X_train, X_test, y_train, y_test, scaler = get_data(True, return_scaler=True)
+X_train, X_test, y_train, y_test = get_data(True, return_scaler=True)
 
 models = {
-    # Logistic regression
+    # # Logistic regression
     "Logistic Regression (Balanced)":  LogisticRegression(class_weight = "balanced", max_iter=1000, random_state=42),
 	"Logistic Regression (UnBalanced)":  LogisticRegression(max_iter=1000, random_state=42),
  
@@ -35,8 +35,7 @@ models = {
     "Gradient Boosting (UnBalanced)": GradientBoostingClassifier(random_state=42),
 
     # K-Nearest Neighbor (KNN)
-    "K-Nearest Neighbors (KNN)": KNeighborsClassifier(),
-
+    "K-Nearest Neighbors (KNN)": KNeighborsClassifier(n_neighbors=5, weights="distance"),
 }
 
 os.makedirs("results/models", exist_ok=True)
@@ -84,9 +83,20 @@ for name, model in models.items():
 df_results = pd.DataFrame(default_threshold_results)
 print("\nModel Comparison (Default Threshold(0.5)): ")
 print("-"*30)
-print(df_results.sort_values(by="F1-Score", ascending=False))
+
+results = df_results.sort_values(by="F1-Score", ascending=False)
+
+# Prints without truncation
+print(results.to_string(index=False))
+# Save in .csv file
+results.to_csv("results/comparison_default_threshold.csv", index=False)
 
 df_results = pd.DataFrame(tuned_threshold_results)
 print(f"\nModel Comparison (Tuned Threshold): ")
 print("-"*30)
-print(df_results.sort_values(by="F1-Score", ascending=False))
+
+results = df_results.sort_values(by="F1-Score", ascending=False)
+# Prints without truncation
+print(results.to_string(index=False))
+# Save in .csv file
+results.to_csv("results/comparison_tuned_threshold.csv", index=False)

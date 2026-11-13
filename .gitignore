@@ -3,7 +3,6 @@ data/*.csv
 data/*.zip
 
 results/models/
-
 results/metrics/
 
 # Python clutter
@@ -20,5 +19,6 @@ kaggle.json
 
 # macOS files
 .DS_Store
+
 
 
