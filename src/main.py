@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 from preprocessing import get_data
 from eval import model_evaluation, find_best_threshold
 
-X_train, X_test, y_train, y_test = get_data(True, return_scaler=True)
+X_train, X_test, y_train, y_test = get_data(True)
 
 models = {
     # # Logistic regression

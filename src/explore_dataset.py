@@ -24,6 +24,7 @@ os.makedirs("results/figures", exist_ok=True)
 # Bar chart showing the number of normal vs fraud transaction
 # Since there are fewer fraud transactions log scale is used
 counts.plot(kind="bar")
+plt.xticks([0, 1], ["Normal", "Fraud"], rotation=0)
 plt.yscale("log")
 plt.xlabel('Class (Normal = 0, Fraud = 1)')
 plt.ylabel('Number of transactions')

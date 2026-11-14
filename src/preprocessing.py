@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-def get_data(summary=False, scaling=True, return_scaler=False):
+def get_data(summary=False, scaling=True):
     file = "data/creditcard.csv"
     try:
         df = pd.read_csv(file)
